@@ -1,0 +1,15 @@
+.tablecontainer{
+    width: 70%;
+    margin-left: 14%;
+    margin-top: 5%;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    box-shadow: #00000033 9px 12px 20px 4px;
+    line-height: 65px;
+}
+.details h1{
+    margin-top: 10px;
+    margin-left: 15px;
+}
