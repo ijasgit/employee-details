@@ -9,7 +9,9 @@ const UserDetails = () => {
 
   return (
     <div className="details">
-      <h1 style={{textDecoration:"underline"}}>Employee Details</h1>
+    <div className="header"><h1 style={{textDecoration:"underline"}}>Employee Details</h1>
+      <button className="btn btn-danger" onClick={()=>navto("/login")}>Log out</button></div>
+      
       <div className="tablecontainer">
       <table className="table">
         <thead>

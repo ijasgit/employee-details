@@ -13,3 +13,12 @@
     margin-top: 10px;
     margin-left: 15px;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.header button{
+    height: 49px;
+    margin: 7px 14px 0px 0px;
+    font-weight: 500;
+}
