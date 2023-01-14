@@ -13,11 +13,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/userdetails" element={<UserDetails />}></Route>
-          <Route path="/view/:id" element={<View />}></Route>
-          <Route path="/addemployee" element={<AddEmployee />}></Route>
+          <Route path="https://ijasgit.github.io/employee-details/ " element={<Register />}></Route>
+          <Route path="https://ijasgit.github.io/employee-details/login" element={<Login />}></Route>
+          <Route path="https://ijasgit.github.io/employee-details/userdetails" element={<UserDetails />}></Route>
+          <Route path="https://ijasgit.github.io/employee-details/view/:id" element={<View />}></Route>
+          <Route path="https://ijasgit.github.io/employee-details/addemployee" element={<AddEmployee />}></Route>
           <Route path="*" element={<h1>not found</h1>}></Route>
         </Routes>
       </BrowserRouter>
