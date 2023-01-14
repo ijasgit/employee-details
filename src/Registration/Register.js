@@ -94,7 +94,7 @@ const Register = () => {
           </div>
 
           <button type="submit" className="btn btn-primary" onClick={newUser}>
-            Register
+           Sign up
           </button>
           <p>
             Already Registered?{" "}

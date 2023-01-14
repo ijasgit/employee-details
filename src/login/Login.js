@@ -5,9 +5,10 @@ import "/home/oem/Desktop/projects in React/task-1/employee-details/src/Registra
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Swal from "sweetalert2";
+import "../login/login.css";
 
 const Login = () => {
-  const navto=useNavigate()
+  const navto = useNavigate();
   const [visible, setvisibility] = useState(false);
 
   function newUser(e) {
@@ -16,39 +17,82 @@ const Login = () => {
     var password = document.getElementById("password").value;
     console.log("working login");
     console.log(email, password);
-   var checkMail= localStorage.getItem("email");
-   var checkPassword= localStorage.getItem("password");
-   console.log(checkMail,checkPassword);
+    var checkMail = localStorage.getItem("email");
+    var checkPassword = localStorage.getItem("password");
+    console.log(checkMail, checkPassword);
 
-   if(email===checkMail&&password===checkPassword){
-    let timerInterval
-Swal.fire({
-  title: 'Loading',
-  html: '<b></b>',
-  timer: 1000,
-  timerProgressBar: true,
-  didOpen: () => {
-    Swal.showLoading()
-    const b = Swal.getHtmlContainer().querySelector('b')
-    timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 1000)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  /* Read more about handling dismissals below */
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-    navto("/userdetails")
-  }
-})
-   
-   }
-   else{
-    alert("invalid mailid or password ")
-   }
+    if (email === checkMail && password === checkPassword) {
+      let timerInterval;
+      Swal.fire({
+        title: "Loading",
+        html: "<b></b>",
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 1000);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+          })
+          navto("/userdetails");
+        }
+      });
+    } else {
+      let timerInterval;
+      Swal.fire({
+        title: "Loading",
+        html: "<b></b>",
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 1000);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Invaild E-mail or Password',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      });
+     
+    }
   }
   return (
     <div>
@@ -101,11 +145,18 @@ Swal.fire({
           </div>
 
           <button type="submit" className="btn btn-primary" onClick={newUser}>
-         Login
+            Login
           </button>
-        
+          <p>
+            New user?{" "}
+            <span
+              style={{ color: "blue", cursor: "pointer", hover: "underline" }}
+              onClick={() => navto("/")}
+            >
+              Create Account
+            </span>
+          </p>
         </form>
-      
       </div>
     </div>
   );
