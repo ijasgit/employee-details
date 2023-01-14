@@ -19,7 +19,7 @@ const Login = () => {
    var checkPassword= localStorage.getItem("password");
    console.log(checkMail,checkPassword);
 
-   if(email==checkMail&&password==checkPassword){
+   if(email===checkMail&&password===checkPassword){
     navto("/userdetails")
    }
    else{

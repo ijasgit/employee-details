@@ -20,7 +20,7 @@ const Register = () => {
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-    if(name!=""&&email!=""&&password!=""){
+    if(name!==""&&email!==""&&password!==""){
       navto("login");
     }
    

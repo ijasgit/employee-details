@@ -2,7 +2,7 @@ import "./App.css";
 import "./Registration/Register";
 import Register from "./Registration/Register";
 import { Route, Routes } from "react-router-dom";
-import { BrowserRouter,HashRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Login from "./login/Login";
 import UserDetails from "./employee details/UserDetails";
 import AddEmployee from "./addemployee/AddEmployee";
