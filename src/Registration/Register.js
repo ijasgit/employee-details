@@ -4,6 +4,7 @@ import "/home/oem/Desktop/projects in React/task-1/employee-details/src/Registra
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const navto = useNavigate();
@@ -21,6 +22,13 @@ const Register = () => {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
     if(name!==""&&email!==""&&password!==""){
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Success',
+        showConfirmButton: false,
+        timer: 1500
+      })
       navto("login");
     }
    

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import "/home/oem/Desktop/projects in React/task-1/employee-details/src/Registration/registraion.css";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navto=useNavigate()
@@ -20,7 +21,30 @@ const Login = () => {
    console.log(checkMail,checkPassword);
 
    if(email===checkMail&&password===checkPassword){
+    let timerInterval
+Swal.fire({
+  title: 'Loading',
+  html: '<b></b>',
+  timer: 1000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 1000)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
     navto("/userdetails")
+  }
+})
+   
    }
    else{
     alert("invalid mailid or password ")

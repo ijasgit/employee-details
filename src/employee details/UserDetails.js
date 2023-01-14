@@ -27,7 +27,7 @@ const UserDetails = () => {
         <tbody>
           {employee[0].map((item, index) => {
             return (
-              <tr>
+              <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{item.fristname}</td>
                 <td>{item.secondname}</td>
@@ -38,7 +38,7 @@ const UserDetails = () => {
                 <td>
                   {/* <button>Edit</button> */}
                   {/* <button>Delete</button> */}
-                  <button class="btn btn-secondary" onClick={()=>navto(`/view/${item.id}`,{state:{item}})}>More info</button>
+                  <button className="btn btn-secondary" onClick={()=>navto(`/view/${item.id}`,{state:{item}})}>More info</button>
                 </td>
               </tr>
             );
