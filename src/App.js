@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import { HashRouter } from "react-router-dom";
 import Login from "./login/Login";
 import UserDetails from "./employee details/UserDetails";
-import AddEmployee from "./addemployee/AddEmployee";
 import View from "./View";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/userdetails" element={<UserDetails />}></Route>
           <Route path="/view/:id" element={<View />}></Route>
-          <Route path="/addemployee" element={<AddEmployee />}></Route>
           <Route path="*" element={<h1>not found</h1>}></Route>
         </Routes>
       </HashRouter>
